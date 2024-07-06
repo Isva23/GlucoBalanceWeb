@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-text {
+  font-weight: bold;
+  background: linear-gradient(to right, #00f, #0ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.bodyRadiant{
+  background-image: radial-gradient(circle at 40% 91%, rgba(251, 251, 251,0.04) 0%, rgba(251, 251, 251,0.04) 50%,rgba(229, 229, 229,0.04) 50%, rgba(229, 229, 229,0.04) 100%),radial-gradient(circle at 66% 97%, rgba(36, 36, 36,0.04) 0%, rgba(36, 36, 36,0.04) 50%,rgba(46, 46, 46,0.04) 50%, rgba(46, 46, 46,0.04) 100%),radial-gradient(circle at 86% 7%, rgba(40, 40, 40,0.04) 0%, rgba(40, 40, 40,0.04) 50%,rgba(200, 200, 200,0.04) 50%, rgba(200, 200, 200,0.04) 100%),radial-gradient(circle at 15% 16%, rgba(99, 99, 99,0.04) 0%, rgba(99, 99, 99,0.04) 50%,rgba(45, 45, 45,0.04) 50%, rgba(45, 45, 45,0.04) 100%),radial-gradient(circle at 75% 99%, rgba(243, 243, 243,0.04) 0%, rgba(243, 243, 243,0.04) 50%,rgba(37, 37, 37,0.04) 50%, rgba(37, 37, 37,0.04) 100%),linear-gradient(90deg, rgb(34,222,237),rgb(135,89,215));
+  opacity: 20%;
+}
+
+.subItemText{
+    font-weight: bold;
+    background: linear-gradient(to right, #4f4f4f, #6f6f6f);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.bgPrimary{
+  background-image: linear-gradient(135deg, rgba(234, 234, 234,0.06) 0%, rgba(234, 234, 234,0.06) 50%,rgba(0,0,0, 0.06) 50%, rgba(0,0,0, 0.06) 100%),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20)); background-size: 72px 72px;
+}
+.bgSecundary{
+
+  background-image: repeating-linear-gradient(0deg, rgba(255,255,255, 0.05) 0px, rgba(255,255,255, 0.05) 1px,transparent 1px, transparent 51px),repeating-linear-gradient(90deg, rgba(255,255,255, 0.05) 0px, rgba(255,255,255, 0.05) 1px,transparent 1px, transparent 51px),linear-gradient(90deg, rgb(17,24,39),rgb(17,24,39));
+
+}
+.box{
+  position: relative;
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.box.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.boxCreadores{
+  position: relative;
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.boxCreadores.active{
+  transform: translateX(0);
+  opacity: 1;
+  transition-duration: 2000ms;
+}
+
+.neonEffects{
+  box-shadow: 
+  0 0 20px #00ffe7,
+  0 0 30px #00ffe7,
+  0 0 40px #00ffe7,
+  inset 0 0 10px #00ffe7;
+}
+
+.no-space{
+  margin: 0;
+  padding: 0;
+}

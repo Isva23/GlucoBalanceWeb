@@ -1,14 +1,12 @@
 
 import React from 'react';
 import { Toolbar } from 'primereact/toolbar';
+import { useNavigate } from 'react-router-dom';
 
 
-interface HeaderUIProops {
-    setLogin : React.Dispatch<React.SetStateAction<boolean>>
-}
+export default function HeaderUI() {
+    const navigate = useNavigate();
 
-export default function HeaderUI({setLogin}:HeaderUIProops) {
-    
     const startContent = (
         <React.Fragment>
             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +39,7 @@ export default function HeaderUI({setLogin}:HeaderUIProops) {
                 <i className="pi pi-home text-2xl"></i>                
             </button>
             <button className="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem rounded-full p-2 hover:bg-gray-600 transition-all transition-duration-200"
-            onClick={()=>setLogin(true)}>
+            onClick={()=> navigate('/login')}>
                 <i className="pi pi-user text-2xl"></i>
             </button>
             <button className="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem rounded-full p-2 hover:bg-gray-600 transition-all transition-duration-200">

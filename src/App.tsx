@@ -1,47 +1,46 @@
 import { useState } from "react"
 import Home from "./components/Home"
-import 'primereact/resources/themes/bootstrap4-dark-blue/theme.css'
+import 'primereact/resources/themes/md-dark-indigo/theme.css'
+import 'primereact/resources/primereact.css'
 
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ListaDeFuncionesProops, User } from "./types"
-import HeaderUI from "./components/UI/HeaderUI"
 import { SingInDemo } from "./components/SingIn"
+import DashboardPage from "./pages/DashboardPage";
 
 
 function App() {
   const [elementos,setElementos] = useState<ListaDeFuncionesProops[]>([])
-  const [login,setLogin] = useState<boolean>(false)
   const [user,setUser] = useState<User>({ user: '', password: '' })
-
-  const isLogin = login === true
-
+  const [auth,setAuth] = useState<boolean>(false)
+  const isAuth = auth === true
   return (
     <>
-    {!isLogin ?
-      <>
-        <HeaderUI
-        setLogin = {setLogin}/>
-        <section>
-          <Home
-            setElementos = {setElementos}
-            elementos = {elementos}/>
-        </section>
-      
-      </>
-    :
-      <div className="bg-gradient-to-b from-black to-gray-900 h-[60rem] pt-[40px]">
-        <div className="mx-auto max-w-3xl">
-          <div className="">
-            <SingInDemo
-              user = {user}
-              setUser = {setUser}
+      <Router>
+        <Routes>
+          <Route path="/home" element={
+            <Home
+              setElementos = {setElementos}
+              elementos = {elementos}/>
+          }/>
+          <Route path="/login" element={
+            <SingInDemo 
+              setAuth = {setAuth}
+              user={user}
+              setUser={setUser}
             />
-          </div>
-        </div>
-      </div>
-    }
+          } />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          {isAuth ? 
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+          :
+          <Route path="*" element={<Navigate to="/home" />} />
+          }
+        </Routes>
+      </Router>
+      
     </>
-    )
+  ) 
 }
 
 export default App

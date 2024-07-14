@@ -12,7 +12,23 @@ module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
   theme: {
-    // rest of the code
+    extend: {
+      colors: {
+        'cerulean-blue': {
+          '50': '#eff3ff',
+          '100': '#dbe4fe',
+          '200': '#bfd0fe',
+          '300': '#93affd',
+          '400': '#6088fa',
+          '500': '#3b6cf6',
+          '600': '#2559eb',
+          '700': '#1d4ed8',
+          '800': '#1e44af',
+          '900': '#1e3a8a',
+          '950': '#172754',
+        },
+      },
+    },
   },
   plugins: [
     addVariablesForColors,

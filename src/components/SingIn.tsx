@@ -3,6 +3,7 @@ import {signInWithEmailAndPassword } from "firebase/auth";
 import { Label } from "./UI/Label";
 import { Input } from "./UI/Input";
 import { cn } from "../utils/cn";
+import { useNavigate } from 'react-router-dom';
 import {
   IconBrandGithub,
   IconBrandGoogle,
@@ -11,12 +12,14 @@ import { User } from "../types";
 import { auth } from "../firebase/config";
 
 type SingInDemoProops = {
+  setAuth: React.Dispatch<React.SetStateAction<boolean>>
   user : User,
   setUser: React.Dispatch<React.SetStateAction<User>>
 }
 
-export function SingInDemo({user,setUser}:SingInDemoProops) {
+export function SingInDemo({setAuth,user,setUser}:SingInDemoProops) {
 
+  const navigate = useNavigate();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const usuario = user.user
@@ -30,7 +33,11 @@ export function SingInDemo({user,setUser}:SingInDemoProops) {
           // Singed in
           const userLogin = userCredential.user;
           if(userLogin.emailVerified === true){
-            
+            setAuth(true)
+            navigate('/dashboard')
+          }
+          else{
+            alert('Credenciales incorrectas')
           }
         })
         .catch((error) => {
@@ -52,8 +59,8 @@ export function SingInDemo({user,setUser}:SingInDemoProops) {
   }
 
   return (
-    <div className="w-full mx-auto p-8 shadow-input bg-[#121212] rounded-xl md:">
-      <img src="/logo.png" alt="logo" className="h-[214px] w-[214px] mb-[30px] mx-auto p-8"/>
+    <div className="mt-10 max-w-3xl w-3/4 mx-auto p-8 shadow-input bg-[#121212] rounded-xl md:">
+      <img src="/logo.png" alt="logo" className="h-[214px] w-[214px] mb-[30px] mx-auto p-8 cursor-pointer" onClick={()=>navigate('/home')}/>
       <h2 className="font-bold text-2xl text-white">
         Inicia sesión en Glucobalance
       </h2>
@@ -105,7 +112,7 @@ export function SingInDemo({user,setUser}:SingInDemoProops) {
   );
 }
 
-const BottomGradient = () => {
+export const BottomGradient = () => {
   return (
     <>
       <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />

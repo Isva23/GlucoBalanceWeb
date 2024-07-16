@@ -87,7 +87,7 @@ export default function Home({setElementos,elementos}:HomeProops) {
                 </div>
             </div>
         </div>
-        <div className='max-w-4xl mx-auto mt-10 mb-20' ref={boxCreators}>
+        <div className='max-w-4xl mx-auto mt-10 mb-20 boxCreadores' ref={boxCreators}>
             <h1 className=' text-4xl text-white font-black'>Creadores</h1>
             {datos.map((data,index) => (
                 <div key={index} className='mt-10 border-[0.25px] border-[#1C1C1F] bg-[#18181B]  p-5 

@@ -11,7 +11,9 @@ export interface User {
 }
 
 export interface Users {
-   email: string;
-   name: string;
-   id: string;
+   id: string
+   Correo: string
+   Nombre: string
+   isSelected : boolean
+   accountType : string
 }

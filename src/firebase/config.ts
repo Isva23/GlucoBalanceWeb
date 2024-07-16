@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection} from 'firebase/firestore/lite';
+import { getFirestore, doc, deleteDoc } from 'firebase/firestore';
 import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,3 +22,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+//funtions
+export const deleteDocument = async (collectionName: string, docId: string) => {
+  try {
+    const docRef = doc(db, collectionName, docId)
+    await deleteDoc(docRef)
+    console.log('Documento eliminado con éxito')
+  } catch (error) {
+    console.error('Error al eliminar el documento: ', error)
+  }
+}

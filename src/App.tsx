@@ -2,6 +2,7 @@ import { useState } from "react"
 import Home from "./components/Home"
 import 'primereact/resources/themes/md-dark-indigo/theme.css'
 import 'primereact/resources/primereact.css'
+import 'primeicons/primeicons.css';
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ListaDeFuncionesProops, User } from "./types"
@@ -30,7 +31,12 @@ function App() {
               setUser={setUser}
             />
           } />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/dashboard" element={
+            <DashboardPage 
+              auth = {auth}
+            />
+
+            } />
           {isAuth ? 
           <Route path="*" element={<Navigate to="/dashboard" />} />
           :

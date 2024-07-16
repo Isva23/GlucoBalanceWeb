@@ -4,7 +4,7 @@
 
 .gradient-text {
   font-weight: bold;
-  background: linear-gradient(to right, #1d4ed8, #1d4ed8);
+  background: linear-gradient(to right, #93affd, #dbe4fe);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -56,18 +56,5 @@
   transition-duration: 2000ms;
 }
 
-.neonEffects{
-  box-shadow: 
-  0 0 20px #00ffe7,
-  0 0 30px #00ffe7,
-  0 0 40px #00ffe7,
-  inset 0 0 10px #00ffe7;
-}
-
-.no-space{
-  margin: 0;
-  padding: 0;
-}
 .bg-custom-dark { background-color: #0E0E11; }
 .bg-custom-card { background-color: #18181B; }
-.text-cerulean { color: #3b6cf6; }
